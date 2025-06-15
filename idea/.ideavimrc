@@ -1,0 +1,136 @@
+""""" General
+
+" Set <leader> to <space>
+let mapleader = " "
+
+" Enables syntax highlight
+syntax on
+
+" Show relative line number from the current line
+set relativenumber
+
+" Do not let cursor scroll below or above N number of lines when scrolling
+set scrolloff=10
+
+" While searching though a file incrementally highlight matching characters as you type
+set incsearch
+
+" Show matching words during a search
+set showmatch
+
+" Use highlighting when doing a search
+set hlsearch
+
+" Show a vertical line indicator at column number
+set colorcolumn=120
+
+" Highlight the line containing the cursor
+set cursorline
+
+""""" Normal mode remaps
+
+" This unsets the "last search pattern" register by hitting ESC
+nnoremap <ESC> :noh<CR>
+
+" These will make it so that going to the next one in a search will center on the line it's found in
+nnoremap n nzzzv
+nnoremap N Nzzzv
+
+" Add Go if != nil
+nnoremap <leader>E oif err != nil {<CR>}<Esc>Oreturn err<Esc>
+
+" Easier navigation between splits
+nnoremap <C-h> <C-w>h
+nnoremap <C-l> <C-w>l
+nnoremap <C-j> <C-w>j
+nnoremap <C-k> <C-w>k
+
+" Use _ to go to the first non-blank character of a line
+nnoremap _ ^
+
+"""" Visual mode remaps
+
+" Move visual block up and down with J and K
+vnoremap J :m '>+1<CR>gv=gv
+vnoremap K :m '<-2<CR>gv=gv
+
+vnoremap <leader>rp :action Replace<CR>
+
+""""" IDEA specific
+
+"  Plugins
+set highlightedyank
+" Comment using gcc
+set commentary
+" set sneak
+set surround
+set quickscope
+
+" KJump - Configured below to act (almost) like leap in nvim
+" nmap <leader><leader>s :action KJumpAction<cr>
+" nmap <leader><leader>w :action KJumpAction.Word0<cr>
+" nmap <leader><leader>l :action KJumpAction.Line<cr>
+nmap s :action KJumpAction.Char2<cr>
+nmap S :action KJumpAction.Char2<cr>
+" nmap <leader><leader>f :action KJumpAction.Word1<cr>
+
+" Edit ideavim config
+nnoremap <leader>sn :e ~/.ideavimrc<CR>
+nnoremap <leader>vr :source ~/.ideavimrc<CR>
+
+nnoremap <D-=> :action EditorIncreaseFontSizeGlobal<CR>
+nnoremap <D--> :action EditorDecreaseFontSizeGlobal<CR>
+" nnoremap <C-o> :action Back<CR>
+" nnoremap <C-i> :action Forward<CR>
+nnoremap H :action PreviousTab<CR>
+nnoremap L :action NextTab<CR>
+
+nnoremap [e :action GotoNextError<CR>
+nnoremap ]e :action GotoPreviousError<CR>
+nnoremap <leader>e :action ShowErrorDescription<CR>
+nnoremap <leader>ef :action ShowIntentionActions<CR>
+
+nnoremap <leader>bD :action CloseAllEditorsButActive<CR>
+
+nnoremap gd :action GotoDeclaration<CR>
+nnoremap gr :action ShowUsages<CR>
+nnoremap gi :action GotoImplementation<CR>
+nnoremap <leader>rn :action RenameElement<CR>
+nnoremap <leader>rf :action RenameFile<CR>
+"vnoremap gc :action CommentByLineComment<CR>
+nnoremap zz :action CollapseSelection<CR>
+
+nnoremap [c :action VcsShowNextChangeMarker<CR>
+nnoremap ]c :action VcsShowPrevChangeMarker<CR>
+nnoremap <leader>gr :action Vcs.RollbackChangedLines<CR>
+nnoremap <leader>gR :action ChangesView.Revert<CR>
+nnoremap <leader>gd :action Compare.SameVersion<CR>
+nnoremap <leader>gc :action CheckinProject<CR>
+nnoremap <leader>gB :action Git.CreateNewBranch<CR>
+nnoremap <leader>gb :action Git.Branches<CR>
+nnoremap <leader>gps :action Vcs.Push<CR>
+nnoremap <leader>gpl :action Vcs.UpdateProject<CR>
+
+nnoremap <leader>R :action ChooseRunConfiguration<CR>
+nnoremap <leader>D :action ChooseDebugConfiguration<CR>
+nnoremap <leader>S :action Stop<CR>
+nnoremap <leader>tr :action RunClass<CR>
+" Do not work: Trying to debug the current context test
+"nnoremap <leader>td <C-S-D>
+"nnoremap <leader>td :action DebugClass<CR>
+"nnoremap <leader>td <D-d>
+" Do not work: Trying to run the current context test with coverage
+"nnoremap <leader>tc :action RunCoverage<CR>
+nnoremap <leader>db :action ToggleLineBreakpoint<CR>
+
+nnoremap <leader>dc :action Resume<CR>
+nnoremap <leader>do :action StepOver<CR>
+nnoremap <leader>di :action StepInto<CR>
+nnoremap <leader>dx :action StepOut<CR>
+nnoremap <leader>ds :action Stop<CR>
+
+nnoremap <leader>s. :action RecentFiles<CR>
+nnoremap <leader>sf :action SearchEverywhere<CR>
+nnoremap <leader>sg :action FindInPath<CR>
+nnoremap <leader>ss :action FileStructurePopup<CR>
+nnoremap <leader>sm :action ShowBookmarks<CR>
