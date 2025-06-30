@@ -14,35 +14,35 @@ require("lazy").setup({
 
 	"tpope/vim-fugitive",
 
-	{ "numToStr/Comment.nvim", opts = {} }, -- "gc" to comment visual regions/lines
+	-- { "numToStr/Comment.nvim", opts = {} }, -- "gc" to comment visual regions/lines
 
 	require("igamorim.lazy.gitsigns"),
 
-	require("igamorim.lazy.wich-key"),
+	-- require("igamorim.lazy.wich-key"),
 
 	require("igamorim.lazy.telescope"),
 
 	require("igamorim.lazy.lsp"),
 
-	require("igamorim.lazy.conform"),
+	require("igamorim.lazy.conform"), -- Autoformat
 
-	require("igamorim.lazy.cmp"),
+	require("igamorim.lazy.cmp"), -- Autocomplete
 
 	require("igamorim.lazy.colorscheme"),
 
 	require("igamorim.lazy.todo-comments"),
 
-	require("igamorim.lazy.mini"),
+	require("igamorim.lazy.mini"), -- Statusline
 
 	require("igamorim.lazy.treesitter"),
 
 	require("igamorim.lazy.neo-tree"),
 
-	require("igamorim.lazy.autoparis"),
+	require("igamorim.lazy.autoparis"), -- Close () [] {} automatically
 
-	require("igamorim.lazy.leap"),
+	require("igamorim.lazy.leap"), -- Better jump movements
 
-	require("igamorim.lazy.debug"),
+	-- require("igamorim.lazy.debug"),
 }, {
 	ui = {
 		-- If you are using a Nerd Font: set icons to an empty table which will use the
