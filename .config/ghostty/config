@@ -7,3 +7,5 @@ cursor-style = block
 shell-integration-features = no-cursor
 
 custom-shader = ./shaders/spiral.glsl
+# custom-shader = ./shaders/stars.glsl
+# custom-shader = ./shaders/tunnel.glsl
