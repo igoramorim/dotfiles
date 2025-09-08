@@ -1,8 +1,8 @@
 local colors_name = "igorbones"
-vim.g.colors_name = colors_name -- Required when defining a colorscheme
+vim.g.colors_name = colors_name
 
 local lush = require("lush")
-local hsluv = lush.hsluv -- Human-friendly hsl
+local hsluv = lush.hsluv
 local util = require("zenbones.util")
 
 local bg = vim.o.background
@@ -15,29 +15,16 @@ local redGray = "#ad6e6e"
 local orangeGray = "#ad846e"
 
 local palette
-if bg == "light" then
-	-- palette = util.palette_extend({
-	-- 	bg = hsluv("#fbf1c7"),
-	-- 	fg = hsluv("#3c3836"),
-	-- 	rose = hsluv("#9d0006"),
-	-- 	leaf = hsluv("#79740e"),
-	-- 	wood = hsluv("#b57614"),
-	-- 	water = hsluv("#076678"),
-	-- 	blossom = hsluv("#8f3f71"),
-	-- 	sky = hsluv("#427b58"),
-	-- }, bg)
-else
-	palette = util.palette_extend({
-		bg = hsluv("#262b33"),
-		fg = hsluv("#8693AE"),
-		rose = hsluv(blueGray), -- Palavras em negrito
-		leaf = hsluv(purple), -- Não sei onde é
-		wood = hsluv(blueGray), -- Barra vertical final linha. Highlight WARNING, palavras iguais
-		water = hsluv(greenGray), -- Panic, len, require
-		blossom = hsluv(purple), -- Matching parentesis, brackets etc
-		sky = hsluv(greenGray), -- Data types
-	}, bg)
-end
+palette = util.palette_extend({
+	bg = hsluv("#262b33"),
+	fg = hsluv("#8693AE"),
+	rose = hsluv(blueGray), -- Palavras em negrito
+	leaf = hsluv(purple), -- Não sei onde é
+	wood = hsluv(blueGray), -- Barra vertical final linha. Highlight WARNING, palavras iguais
+	water = hsluv(greenGray), -- Panic, len, require
+	blossom = hsluv(purple), -- Matching parentesis, brackets etc
+	sky = hsluv(greenGray), -- Data types
+}, bg)
 
 -- Generate the lush specs using the generator util
 local generator = require("zenbones.specs")
