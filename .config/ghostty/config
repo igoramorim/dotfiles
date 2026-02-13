@@ -1,4 +1,5 @@
-theme = jubi
+theme = zenwritten_dark
+# theme = jubi
 
 font-family = JetBrains Mono Medium
 font-size = 17
@@ -6,6 +7,10 @@ font-size = 17
 cursor-style = block
 shell-integration-features = no-cursor
 
-custom-shader = ./shaders/spiral.glsl
+# custom-shader = ./shaders/spiral.glsl
 # custom-shader = ./shaders/stars.glsl
 # custom-shader = ./shaders/tunnel.glsl
+
+# keybind = ctrl+space+c=new_tab
+# keybind = ctrl+space+n=next_tab
+# keybind = ctrl+space+p=previous_tab

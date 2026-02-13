@@ -14,7 +14,7 @@ float cubicPulse( float c, float w, float x ){
 void mainImage( out vec4 fragColor, in vec2 fragCoord )
 {
     vec2 uvorig = fragCoord / iResolution.xy;
-    float time = iTime * 0.1;
+    float time = iTime * 0.05;
     
     //////////////////////////////////////////////////////
     // Create tunnel coordinates (p) and remap to normal coordinates (uv)

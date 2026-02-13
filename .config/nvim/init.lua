@@ -55,9 +55,14 @@ vim.opt.cursorline = true
 vim.opt.scrolloff = 10
 
 -- show a vertical line indicator at column number.
-vim.opt.colorcolumn = "120"
+vim.opt.colorcolumn = "100"
 
 vim.opt.hlsearch = true
+
+vim.opt.tabstop = 4
+vim.opt.shiftwidth = 4
+vim.opt.softtabstop = 4
+vim.opt.expandtab = false
 
 -- keymaps - see `:help vim.keymap.set()`
 
@@ -91,13 +96,8 @@ vim.keymap.set("n", "L", "<cmd>bnext<CR>", { desc = "move to the next buffer" })
 vim.keymap.set("n", "H", "<cmd>bprevious<CR>", { desc = "move to the previous buffer" })
 
 -- delete buffers
-vim.keymap.set("n", "<leader>bd", ":bd <CR>", { desc = "buffer delete" })
-vim.keymap.set(
-	"n",
-	"<leader>bD",
-	":w <bar> %bd <bar> e# <bar> bd# <CR><CR>",
-	{ desc = "buffer delete all expect the current" }
-)
+vim.keymap.set("n", "<leader>db", ":bd <CR>", { desc = "delete buffer" })
+vim.keymap.set("n", "<leader>do", ":w <bar> %bd <bar> e# <bar> bd# <CR><CR>", { desc = "delete others buffers" })
 
 -- Use _ to go to the first non-blank character of the line
 vim.keymap.set("n", "_", "^")
@@ -111,9 +111,9 @@ vim.keymap.set("n", "<leader>tr", ":!go test %:p -v -run ^<C-r><C-w>$<CR>", { de
 vim.keymap.set("n", "<leader>tf", ":!go test %:p -v<CR>", { desc = "test run file" })
 vim.keymap.set(
 	"n",
-	"<leader>tR",
+	"<leader>tp",
 	":!go test ./... -v -race -shuffle=on -count=1 -timeout=30m<CR>",
-	{ desc = "test run all" }
+	{ desc = "test run project" }
 )
 
 -- autocommands - see `:help lua-guide-autocommands`
@@ -201,12 +201,6 @@ require("lazy").setup({
 				builtin.find_files({ cwd = vim.fn.stdpath("config") })
 			end, { desc = "search neovim files" })
 
-			vim.keymap.set("n", "<leader>gb", builtin.git_branches, { desc = "git branches" })
-			vim.keymap.set("n", "<leader>gs", builtin.git_status, { desc = "git status" })
-			vim.keymap.set("n", "<leader>gl", builtin.git_commits, { desc = "git log" })
-			vim.keymap.set("n", "<leader>gL", builtin.git_bcommits, { desc = "git log for file" })
-			vim.keymap.set("n", "<leader>gS", builtin.git_stash, { desc = "git stash" })
-
 			vim.keymap.set("n", "<leader>sm", builtin.marks, { desc = "search marks" })
 		end,
 	},
@@ -234,9 +228,9 @@ require("lazy").setup({
 					map("<leader>D", require("telescope.builtin").lsp_type_definitions, "type definition")
 					map("<leader>ss", require("telescope.builtin").lsp_document_symbols, "search symbols")
 					map(
-						"<leader>sS",
+						"<leader>sp",
 						require("telescope.builtin").lsp_dynamic_workspace_symbols,
-						"search workspace symbols"
+						"search project symbols"
 					)
 					map("<leader>rn", vim.lsp.buf.rename, "rename")
 					map("<leader>ef", vim.lsp.buf.code_action, "error fix")
@@ -445,6 +439,14 @@ require("lazy").setup({
 			-- vim.cmd.colorscheme("naysayer")
 		end,
 	},
+	{ -- colorscheme
+		"webhooked/kanso.nvim",
+		priority = 1000,
+		lazy = false,
+		config = function()
+			-- vim.cmd.colorscheme("naysayer")
+		end,
+	},
 	{ -- custom colorscheme
 		"zenbones-theme/zenbones.nvim",
 		dependencies = "rktjmp/lush.nvim",
@@ -474,4 +476,4 @@ require("lazy").setup({
 	},
 })
 
-vim.cmd.colorscheme("habamax")
+vim.cmd.colorscheme("kanso-zen")
